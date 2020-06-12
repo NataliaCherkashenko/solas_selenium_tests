@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.github.solas-selenium-tests</groupId>
-    <artifactId>SolasSeleniumTests</artifactId>
+    <artifactId>Solas_Selenium_Tests</artifactId>
     <version>0.1-SNAPSHOT</version>
 
     <dependencies>
