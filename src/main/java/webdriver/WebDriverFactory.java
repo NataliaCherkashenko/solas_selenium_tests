@@ -34,16 +34,13 @@ public class WebDriverFactory {
         WebDriver webDriver = null;
 
         if (CHROME.equals(browserName)) {
-            ChromeDriverManager.getInstance().setup();
             webDriver = new ChromeDriver();
         }
         else if (FIREFOX.equals(browserName)) {
-            FirefoxDriverManager.getInstance().setup();
             webDriver = new FirefoxDriver();
 
         }
         else if (INTERNET_EXPLORER.equals(browserName)) {
-            InternetExplorerDriverManager.getInstance().setup();
             webDriver = new InternetExplorerDriver();
         }
         else {

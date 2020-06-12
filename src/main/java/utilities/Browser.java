@@ -12,7 +12,6 @@ public class Browser {
 
     private static String baseUrl = PropertyLoader.loadProperty("site.url");
     private static String BrowserName = PropertyLoader.loadProperty("browser.name");
-    private static String BrowserVersion = PropertyLoader.loadProperty("browser.version");
     private static WebDriver webDriver;
 
     public static void Initialize()

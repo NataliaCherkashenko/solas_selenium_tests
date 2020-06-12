@@ -5,19 +5,29 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 
-public class HomePage {
+public class HomePage extends Pages {
 
-    private final String H1_TAG = "h1";
 
-    @FindBy(how = How.TAG_NAME, using = H1_TAG)
+    @FindBy(xpath = "//*[@class='submenu-item']")
     @CacheLookup
-    private WebElement h1Element;
+    public WebElement moreMenu;
 
-    public HomePage(){ }
 
-    public String getH1() {
-        return h1Element.getText();
+    @FindBy(xpath = "//ul[@class='main-sub-menu submenu-open']/li/span")
+    @CacheLookup
+    public List<WebElement> moreMenuElements;
+
+
+    @FindBy(xpath = "//*[@href='/']")
+    @CacheLookup
+    public WebElement logo;
+
+    public HomePage(WebDriver driver) {
+        super(driver);
     }
 }

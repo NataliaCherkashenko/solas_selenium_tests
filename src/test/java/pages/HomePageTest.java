@@ -7,12 +7,19 @@ import utilities.Browser;
 public class HomePageTest extends TestBase{
 
     @Test
-    public void testH1Existing() throws InterruptedException {
-        Assert.assertTrue(Browser.getTitle() != null);
+    public void openMoreMenu() throws InterruptedException {
+
+        homePage.moreMenu.click();
+
+        String firstItemMoreMenu = homePage.moreMenuElements.get(0).getText();
+
+        Assert.assertTrue(firstItemMoreMenu.equals("About Generation Apprenticeship"));
+
+        for(int i = 0; i < homePage.moreMenuElements.size(); i++){
+            int number = i+1;
+            System.out.println("More menu item "+number+" is "+ homePage.moreMenuElements.get(i).getText());
+        }
     }
 
-    @Test
-    public void test2() throws InterruptedException {
-        Assert.assertTrue(true);
-    }
+
 }

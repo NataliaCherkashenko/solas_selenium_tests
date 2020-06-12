@@ -15,20 +15,25 @@ import utilities.Browser;
 import java.io.File;
 import java.io.IOException;
 
+import static utilities.Browser.Driver;
+
 public abstract class TestBase {
 
     private static final String SCREENSHOT_FOLDER = "target/screenshots/";
     private static final String SCREENSHOT_FORMAT = ".png";
+    HomePage homePage;
 
     @BeforeClass
     public void init() {
         Browser.Initialize();
+        homePage = new HomePage(Driver());
+
     }
 
     @AfterSuite(alwaysRun = true)
     public void tearDown() {
-        if (Browser.Driver() != null) {
-            Browser.Driver().quit();
+        if (Driver() != null) {
+            Driver().quit();
         }
     }
 
@@ -36,7 +41,7 @@ public abstract class TestBase {
     public void setScreenshot(ITestResult result) {
         if (!result.isSuccess()) {
             try {
-                WebDriver returned = new Augmenter().augment(Browser.Driver());
+                WebDriver returned = new Augmenter().augment(Driver());
                 if (returned != null) {
                     File f = ((TakesScreenshot) returned).getScreenshotAs(OutputType.FILE);
                     try {
